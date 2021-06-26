@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthorsService } from '../authors.service';
 
 @Component({
   selector: 'app-authors',
@@ -6,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./authors.component.css'],
 })
 export class AuthorsComponent implements OnInit {
-  authors = ['author1', 'author2', 'author3']
+  authors;
 
-  constructor() { }
+  constructor(service: AuthorsService) { 
+    this.authors = service.getAuthors();
+  }
 
   ngOnInit(): void {
   }
