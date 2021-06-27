@@ -10,11 +10,16 @@ import { CoursesService } from "./courses.service";
           {{ course }}
         </li>
       </ul>
+      <img src="{{ imgUrlBindBraces }}"/>
+      <img [src]="imgUrlBindParameter"/>
     `
   })
   export class CoursesComponent{
     title = "List of Courses";
     courses;
+
+    imgUrlBindBraces = "http://lorempixel.com/400/200/";
+    imgUrlBindParameter = "http://lorempixel.com/400/200/";
 
     constructor(service: CoursesService) {
       this.courses = service.getCourses();
