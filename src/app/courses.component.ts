@@ -15,9 +15,11 @@ import { CoursesService } from "./courses.service";
 
       <table>
         <tr>
-          <td [attr.colspan]="colSpan"></td> //here is a way to convert an DOM object to Http and use his properties
+          <td [attr.colspan]="colSpan"></td> <!-- here is a way to convert an DOM object to Http and use his properties -->
         </tr>
       </table>
+
+      <button class="btn btn-primary">Save</button>
     `
   })
   export class CoursesComponent{
