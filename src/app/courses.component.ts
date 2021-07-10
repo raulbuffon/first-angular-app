@@ -19,7 +19,10 @@ import { CoursesService } from "./courses.service";
         </tr>
       </table>
 
-      <button class="btn btn-primary">Save</button>
+      <button class="btn btn-primary" [class.active]="true">Save</button> <!-- can bind class using active and others -->
+      <button [style.backgroundColor]="isActive ? 'blue' : 'white'">Save</button> <!-- can bind style using active and others for DOM style properties -->
+
+      <button (click)="onSave($event)">Save</button>
     `
   })
   export class CoursesComponent{
@@ -30,6 +33,12 @@ import { CoursesService } from "./courses.service";
     imgUrlBindProperty = "http://lorempixel.com/400/200/"; // remember that html and DOM(the rendered page here) can have differences in his properties
 
     colSpan = 2;
+
+    isActive = false;
+
+    onSave($event: any) {
+      console.log("Button was clicked", $event);
+    }
 
     constructor(service: CoursesService) {
       this.courses = service.getCourses();
