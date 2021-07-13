@@ -24,7 +24,9 @@ import { CoursesService } from "./courses.service";
 
       <button (click)="onSave($event)">Save</button>
 
-      <input (keyup.enter)="onKeyUp()">
+      <input (keyup.enter)="onKeyUp()"> <!-- filtering event by keys pressed -->
+
+      <input #email (keyup.enter)="onKeyUp2(email.value)"> <!-- ao inves de enviar evento como parametro usa template variables que referencia o campo de input -->
     `
   })
   export class CoursesComponent{
@@ -44,6 +46,10 @@ import { CoursesService } from "./courses.service";
 
     onKeyUp() {
       console.log("ENTER was pressed");
+    }
+
+    onKeyUp2(email: any) {
+      console.log(email);
     }
 
     constructor(service: CoursesService) {
