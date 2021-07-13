@@ -23,6 +23,8 @@ import { CoursesService } from "./courses.service";
       <button [style.backgroundColor]="isActive ? 'blue' : 'white'">Save</button> <!-- can bind style using active and others for DOM style properties -->
 
       <button (click)="onSave($event)">Save</button>
+
+      <input (keyup.enter)="onKeyUp()">
     `
   })
   export class CoursesComponent{
@@ -38,6 +40,10 @@ import { CoursesService } from "./courses.service";
 
     onSave($event: any) {
       console.log("Button was clicked", $event);
+    }
+
+    onKeyUp() {
+      console.log("ENTER was pressed");
     }
 
     constructor(service: CoursesService) {
