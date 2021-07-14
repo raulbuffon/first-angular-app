@@ -29,6 +29,13 @@ import { CoursesService } from "./courses.service";
       <input #email (keyup.enter)="onKeyUp2(email.value)"> <!-- ao inves de enviar evento como parametro usa template variables que referencia o campo de input -->
     
       <input [(ngModel)]="emailEx" (keyup.enter)="onKeyUp3()"> <!-- recebe o valor com o campo pre inicializado, alterando conforme input usando forms module -->
+      
+      <br/>
+      {{ course.title | uppercase | lowercase }} <br/>
+      {{ course.students | number }} <br/>
+      {{ course.rating | number:'1.2-2' }} <br/>
+      {{ course.price | currency: 'AUD':true:'' }} <br/>
+      {{ course.releaseDate | date: 'shortDate' }} <br/>
       `
   })
   export class CoursesComponent{
@@ -57,6 +64,14 @@ import { CoursesService } from "./courses.service";
     emailEx = "me@example.com";
     onKeyUp3() {
       console.log(this.emailEx);
+    }
+
+    course = {
+      title: "Angular Pipes",
+      rating: 4.9745,
+      students: 30123,
+      price: 190.95,
+      releaseDate: new Date(2016, 3, 1)
     }
 
     constructor(service: CoursesService) {
