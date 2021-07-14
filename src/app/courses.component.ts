@@ -27,7 +27,9 @@ import { CoursesService } from "./courses.service";
       <input (keyup.enter)="onKeyUp()"> <!-- filtering event by keys pressed -->
 
       <input #email (keyup.enter)="onKeyUp2(email.value)"> <!-- ao inves de enviar evento como parametro usa template variables que referencia o campo de input -->
-    `
+    
+      <input [(ngModel)]="emailEx" (keyup.enter)="onKeyUp3()"> <!-- recebe o valor com o campo pre inicializado, alterando conforme input usando forms module -->
+      `
   })
   export class CoursesComponent{
     title = "List of Courses";
@@ -50,6 +52,11 @@ import { CoursesService } from "./courses.service";
 
     onKeyUp2(email: any) {
       console.log(email);
+    }
+
+    emailEx = "me@example.com";
+    onKeyUp3() {
+      console.log(this.emailEx);
     }
 
     constructor(service: CoursesService) {
