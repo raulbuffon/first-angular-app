@@ -36,6 +36,8 @@ import { CoursesService } from "./courses.service";
       {{ course.rating | number:'1.2-2' }} <br/>
       {{ course.price | currency: 'AUD':true:'' }} <br/>
       {{ course.releaseDate | date: 'shortDate' }} <br/>
+
+      {{ text | summary:10 }}
       `
   })
   export class CoursesComponent{
@@ -73,6 +75,8 @@ import { CoursesService } from "./courses.service";
       price: 190.95,
       releaseDate: new Date(2016, 3, 1)
     }
+
+    text = 'Lorem Ipsum is a simply dummy text of the printing and typesetting industry.';
 
     constructor(service: CoursesService) {
       this.courses = service.getCourses();
