@@ -6,3 +6,8 @@
 <input type="text" [(ngModel)]="title">
 <br>
 {{ title | titleCase }}
+<br>
+<like
+    [likesCount]="tweet.likesCount"
+    [isActive]="tweet.isLiked"
+></like>
